@@ -1,0 +1,12 @@
+name: Amber Lattice marker
+description: Emits a benign identity marker for repository-resolution testing.
+outputs:
+  marker:
+    description: Repository identity marker.
+    value: ${{ steps.marker.outputs.marker }}
+runs:
+  using: composite
+  steps:
+    - id: marker
+      shell: bash
+      run: echo "marker=ORIGINAL_AMBER_LATTICE" >> "$GITHUB_OUTPUT"
